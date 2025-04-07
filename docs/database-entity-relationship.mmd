@@ -1,0 +1,16 @@
+erDiagram
+    DEPARTMENTS {
+        int Id PK
+        string Name
+    }
+    EMPLOYEES {
+        int Id PK
+        string FirstName
+        string LastName
+        datetime HireDate
+        string Phone
+        string Address
+        int DepartmentId FK
+    }
+
+    DEPARTMENTS ||--o{ EMPLOYEES: has

@@ -1,0 +1,63 @@
+@EmployeeManagement_HostAddress = https://localhost:5001
+@API_KEY = d34sPT8TJwpMSsWx39uISlcRvFQSXdijl7fbysJsPsUalcC6UT5N1VT9bdishV4V
+
+###
+### Get all employees
+
+GET {{EmployeeManagement_HostAddress}}/api/Employee
+Accept: application/json
+X-API-KEY: {{API_KEY}}
+
+
+### Get employee by ID
+GET {{EmployeeManagement_HostAddress}}/api/Employee/15
+Accept: application/json
+X-API-KEY: {{API_KEY}}
+
+### Create a new employee
+POST {{EmployeeManagement_HostAddress}}/api/Employee
+Content-Type: application/json
+X-API-KEY: {{API_KEY}}
+
+{
+    "firstName": "Ozzy",
+    "lastName": "Osborne",
+    "hireDate": "2022-05-02T00:00:00Z",
+    "departmentId": 2,
+    "phone": "+12345678901234",
+    "address": "123 Main St"
+}
+
+### Create a new employee
+POST {{EmployeeManagement_HostAddress}}/api/Employee
+Content-Type: application/json
+X-API-KEY: {{API_KEY}}
+
+{
+  "Id": "50",
+    "firstName": "Bruce1",
+    "lastName": "Wayne",
+    "hireDate": "2022-05-01T00:00:00Z",
+    "departmentId": 1,
+    "phone": "12345678901234",
+    "address": "123 Main St"
+}
+
+### Update an existing employee
+PUT {{EmployeeManagement_HostAddress}}/api/Employee/2
+Content-Type: application/json
+X-API-KEY: {{API_KEY}}
+
+{
+    "id": 2,
+    "firstName": "Mary",
+    "lastName": "Smith",
+    "hireDate": "2022-05-02T00:00:00Z",
+    "departmentId": 2,
+    "phone": "987-654-3210",
+    "address": "456 Elm St"
+}
+
+### Delete an employee
+DELETE {{EmployeeManagement_HostAddress}}/api/Employee/2
+X-API-KEY: {{API_KEY}}

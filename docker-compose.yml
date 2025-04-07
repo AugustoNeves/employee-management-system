@@ -1,0 +1,45 @@
+services:
+  sqlserver:
+    image: 'mcr.microsoft.com/mssql/server:2022-latest'
+    container_name: employee-db
+    restart: always
+    ports:
+      - '1433:1433'
+    environment:
+      SA_PASSWORD: 'YourPassword123!'
+      ACCEPT_EULA: 'Y'
+    volumes:
+      - sqlserver-data:/var/opt/mssql
+
+  api:
+    build:
+      context: .
+      dockerfile: src/API/Dockerfile
+    container_name: employee-api
+    depends_on:
+      - sqlserver
+    ports:
+      - '5000:8080'
+      - '5001:8081'
+    environment:
+      - ConnectionStrings__DefaultConnection=Server=sqlserver;Database=EmployeeDB;User Id=sa;Password=YourPassword123!;TrustServerCertificate=True
+      - ASPNETCORE_ENVIRONMENT=Development
+      - X-API-KEY=d34sPT8TJwpMSsWx39uISlcRvFQSXdijl7fbysJsPsUalcC6UT5N1VT9bdishV4V
+    restart: always
+
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/employee/Dockerfile
+    container_name: frontend-app
+    environment:
+      - VITE_API_BASE_URL=https://localhost:5001/api
+      - VITE_API_KEY=d34sPT8TJwpMSsWx39uISlcRvFQSXdijl7fbysJsPsUalcC6UT5N1VT9bdishV4V
+    ports:
+      - '4173:4173'
+    depends_on:
+      - api
+    restart: always
+
+volumes:
+  sqlserver-data:
