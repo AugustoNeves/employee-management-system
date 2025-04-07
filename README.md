@@ -1,6 +1,6 @@
 <a id="readme-top"></a>
 
-# Employee Management - dotnet-assesment
+# Employee Management
 
 <!-- PROJECT LOGO -->
 <br />
@@ -15,7 +15,7 @@
 
 ## Table of contents
 
-- [Employee Management - dotnet-assesment](#employee-management---dotnet-assesment)
+- [Employee Management](#employee-management)
   - [Table of contents](#table-of-contents)
   - [About The Project](#about-the-project)
     - [Built with](#built-with)
@@ -26,7 +26,6 @@
     - [1. Clone the Repository](#1-clone-the-repository)
     - [2. Run the Entire Application with Docker](#2-run-the-entire-application-with-docker)
     - [3. Navigate to the application](#3-navigate-to-the-application)
-
 
 ## About The Project
 
@@ -70,8 +69,8 @@ Follow these steps to set up and run the project.
 ### 1. Clone the Repository
 
 ```sh
-git clone https://git.number8.com/augusto.neves/dotnet-assesment.git
-cd dotnet-assesment
+git clone https://github.com/AugustoNeves/employee-management-system.git
+cd employee-management-system
 ```
 
 ### 2. Run the Entire Application with Docker
